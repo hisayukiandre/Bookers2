@@ -13,10 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
-header {
-  background-color: lightblue;
-}
-footer {
-  background-color: red;
-}
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
