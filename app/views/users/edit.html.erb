@@ -1,24 +1,24 @@
 <!-- ユーザー情報の変更に失敗した時のエラーメッセージ -->
 <% if @user.errors.any? %>
-  <h2><%= @user.errors.count %>error</h2>
-  <% @user.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
-  <% end %>
+<h2><%= @user.errors.count %>error</h2>
+<% @user.errors.full_messages.each do |message| %>
+<p><%= message %></p>
+<% end %>
 <% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-5 mx-auto">
-<h2 class="pt-3">User info</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <p>Name</p>
-  <%= f.text_field :name, class: 'form-control' %>
-  <p class="pt-3">Image</p>
-  <%= f.attachment_field :profile_image %>
-  <p class="pt-3">Introduction</p>
-  <%= f.text_area :introduction, class: 'form-control' %>
-  <%= f.submit 'Update User', class: 'btn btn-secondary mt-3' %>
-<% end %>
-</div>
-</div>
+      <h2 class="pt-3">User info</h2>
+      <%= form_with model:@user, local:true do |f| %>
+      <p>Name</p>
+      <%= f.text_field :name, class: 'form-control' %>
+      <p class="pt-3">Image</p>
+      <%= f.attachment_field :profile_image %>
+      <p class="pt-3">Introduction</p>
+      <%= f.text_area :introduction, class: 'form-control' %>
+      <%= f.submit 'Update User', class: 'btn btn-secondary mt-3' %>
+      <% end %>
+    </div>
+  </div>
 </div>
