@@ -2,7 +2,7 @@
 <!-- 投稿・編集に成功した時のメッセージ-->
 <% if flash[:notice] %>
 		  <p style="color: green"><%= flash[:notice] %></p>
-<% end %>
+<% end %> 
 
 <!-- 投稿に失敗した時のエラーメッセージ -->
 <% if @book.errors.any? %>
