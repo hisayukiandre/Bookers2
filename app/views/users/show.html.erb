@@ -13,8 +13,8 @@
 
 <div class="container">
   <div class="row">
-    <!-- ユーザー情報 -->
     <div class="col-md-3">
+      <!-- ユーザー情報 -->
       <h2 class="pt-3">User info</h2>
       <%= attachment_image_tag @user, :profile_image, size:'100x100', fallback: "no_image.jpg", format: 'jpeg' %>
       <table class="table">
@@ -47,7 +47,7 @@
       <%= f.text_field :title, class: 'form-control' %>
       <p>Opinion</p>
       <%= f.text_area :body, class: 'form-control' %><br>
-      <%= f.submit 'Create Book', class: 'btn btn-success'%>
+      <%= f.submit 'Create Book', class: 'btn btn-success' %>
       <% end %>
     </div>
     <!-- ログイン中のユーザーの投稿した本のリスト-->
