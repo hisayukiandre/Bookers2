@@ -59,9 +59,9 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
-          </thead>
-          <tbody>
           </tr>
+        </thead>
+        <tbody>
           <% @user.books.each do |book| %>
           <tr>
             <!-- book.userとしなければエラーが表示される。アソシエーションすることによって.を使うことでそれぞれのテーブルのカラムから値を取り出せる -->
