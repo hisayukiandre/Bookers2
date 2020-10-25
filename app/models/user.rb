@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   attachment :profile_image  # refileを使用するため,idをつけない
 
   validates :name, presence: true, length: {in: 2..20}, uniqueness: true
