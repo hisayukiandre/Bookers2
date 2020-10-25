@@ -1,0 +1,47 @@
+<header class="navbar navbar-dark bg-dark">
+    <!-- ログイン前と後で表示するヘッダーを変える -->
+    <div class="container">
+      <div class="nav navbar-brand">
+        <%= link_to 'Bookers',root_path, class: 'text-light text-decoration-none' %>
+      </div>
+      <% if user_signed_in? %>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <%= link_to user_path(current_user.id) do %>
+          <i class="fas fa-home nav-link text-light"> Home</i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to users_path do %>
+          <i class="fas fa-users nav-link text-light"> Users</i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to books_path do %>
+          <i class="fas fa-book-open nav-link text-light"> Books</i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt nav-link text-light"> logout</i>
+          <% end %>
+        </li>
+      </ul>
+      <% else %>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <%= link_to ' Home', root_path, class: "fas fa-home nav-link text-light" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to ' About', home_about_path, class: "fas fa-link nav-link text-light" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to ' sign up', new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to ' login', new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </header>

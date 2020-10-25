@@ -1,0 +1,22 @@
+<!-- ログイン中のユーザー情報 -->
+<h2 class="pt-3">User info</h2>
+<%= attachment_image_tag user, :profile_image, size:'100x100', fallback: "no_image.jpg", format: 'jpeg' %>
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+<!-- ログイン中のユーザー以外が編集できないようにするために強制的にログイン中のユーザーの詳細画面へ -->
+<%= link_to edit_user_path(user) do %>
+<div class="btn btn-outline-dark btn-sm btn-block">
+  <i class="fas fa-user-cog "></i>
+</div>
+<% if user != current_user %>
+<%= link_to '', user_path(current_user) %>
+<% end %>
+<% end %>

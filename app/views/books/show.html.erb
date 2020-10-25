@@ -4,51 +4,18 @@
 <% end %> 
 
 <!-- 投稿に失敗した時のエラーメッセージ -->
-<% if @book.errors.any? %>
-<h2><%= @book.errors.count %>error</h2>
-<% @book.errors.full_messages.each do |message| %>
-<p><%= message %></p>
-<% end %>
-<% end %>
+<%= render 'layouts/error', obj:@book %>
+
 
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <!-- ユーザー情報 -->
-      <h2 class="pt-3">User info</h2>
       <!--アソシエーションを利用-->
       <!--選んだ本のユーザー情報を表示-->
-      <%= attachment_image_tag @book_detail.user, :profile_image, size:'100x100', fallback: "no_image.jpg", format: 'jpeg' %>
-      <table class="table">
-        <tr>
-          <th>name</th>
-          <th><%= @book_detail.user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th>
-          <th><%= @book_detail.user.introduction %></th>
-        </tr>
-      </table>
-      <!-- ログイン中のユーザー以外が編集できないようにするために強制的にログイン中のユーザーの詳細画面へ -->
-      <%= link_to edit_user_path(@book_detail.user) do %>
-      <div class="btn btn-outline-dark btn-sm btn-block">
-        <i class="fas fa-user-cog "></i>
-      </div>
-      <% if @book_detail.user != current_user %>
-      <%= link_to '', user_path(current_user) %>
-      <% end %>
-      <% end %>
+      <%= render 'users/info', user:@book_detail.user %>
 
 
-      <!--新しい本を投稿-->
-      <h2 class="pt-3">New book</h2>
-      <%= form_with model:@book, local:true do |f| %>
-      <p>Title</p>
-      <%= f.text_field :title, class: 'form-control' %>
-      <p>Opinion</p>
-      <%= f.text_area :body, class: 'form-control' %><br>
-      <%= f.submit 'Create Book', class: 'btn btn-success' %>
-      <% end %>
+      <%= render 'books/form', book:@book %>
     </div>
 
     <div class="col-md-8 offset-md-1">
