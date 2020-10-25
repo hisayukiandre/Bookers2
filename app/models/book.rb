@@ -2,6 +2,7 @@ class Book < ApplicationRecord
 	# 外部キーは基本的にモデル名＋_id
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
