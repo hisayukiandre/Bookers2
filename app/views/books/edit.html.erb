@@ -1,22 +1,26 @@
-<h1>Books#edit</h1>
-
 <!-- 本の編集に失敗した時のエラーメッセージ -->
 <% if @book.errors.any? %>
-  <h2><%= @book.errors.count %>error</h2>
-  <% @book.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
-  <% end %>
+<h2><%= @book.errors.count %>error</h2>
+<% @book.errors.full_messages.each do |message| %>
+<p><%= message %></p>
+<% end %>
 <% end %>
 
-
-<h1>Editing Book</h1>
-<%= form_with model:@book, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %><br>
-  <%= f.submit 'Update Book' %>
-<% end %>
-
-<%= link_to 'Show', book_path(@book) %>|
-<%= link_to 'Back', books_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 mx-auto">
+			<h1 class="pt-3">Editing Book</h1>
+			<%= form_with model:@book, local:true do |f| %>
+			<p>Title</p>
+			<%= f.text_field :title, class: 'form-control' %>
+			<p class="pt-3">Opinion</p>
+			<%= f.text_area :body, class: 'form-control' %><br>
+			<%= f.submit 'Update Book', class: 'btn btn-success ' %>
+			<% end %>
+			<div class="pt-3">
+				<%= link_to 'Show', book_path(@book) %>|
+				<%= link_to 'Back', books_path %>
+			</div>
+		</div>
+	</div>
+</div>
